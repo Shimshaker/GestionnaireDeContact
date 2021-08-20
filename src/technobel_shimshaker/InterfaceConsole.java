@@ -61,11 +61,11 @@ public class InterfaceConsole {
                         System.out.println("Veuillez entrez les remarques éventuel à indiquez");
                         String contactRemarque = sc.nextLine();
 
-                        String newcontact = UUID.randomUUID().toString();
+                        //String newcontact = UUID.randomUUID().toString();
 
                         int newIdMap = contactId.size() + 1;
 
-                        contactId.put(newIdMap, new Contact(newcontact, contactName, contactPrenom, contactNickName, contactDateDeNaissance, contactNationalite, contactAdresse, contactNumero, contactNumeroBoite, contactCodePostal, contactPays, contactTelFixe, contactSmartPhone, contactEmail, contactRemarque));
+                        contactId.put(newIdMap, new Contact(newIdMap, contactName, contactPrenom, contactNickName, contactDateDeNaissance, contactNationalite, contactAdresse, contactNumero, contactNumeroBoite, contactCodePostal, contactPays, contactTelFixe, contactSmartPhone, contactEmail, contactRemarque));
 
                     }catch (Exception e){
                         System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
@@ -119,6 +119,7 @@ public class InterfaceConsole {
 
                     break;
                 case '3':
+
                     break;
                 case '4':
                     contactList.stream()
@@ -127,8 +128,10 @@ public class InterfaceConsole {
 
                     break;
                 case '5':
+
                     break;
                 case '6':
+
                     break;
                 case '7':
                     System.out.println("Merçi et au revoir...!");

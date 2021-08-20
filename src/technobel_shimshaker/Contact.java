@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class Contact {
 
-    private String id;
+    private int id;
     private String nom;
     private String prenom;
     private String nickname;
@@ -24,7 +24,7 @@ public class Contact {
     private String email;
     private String remarque;
 
-    public Contact(String id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, int numero, int boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
+    public Contact(int id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, int numero, int boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -43,11 +43,11 @@ public class Contact {
         InterfaceConsole.contactList.add(this);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
