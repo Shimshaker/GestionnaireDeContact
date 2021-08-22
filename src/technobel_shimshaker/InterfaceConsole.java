@@ -1,11 +1,28 @@
 package technobel_shimshaker;
 
+import java.sql.*;
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class InterfaceConsole {
 
+    static String username = "Shimshaker";
+    static String password = "-vK$3Apytqq4dYKt";
+    static String dbURL = "jdbc:sqlserver://COSMOSDESKTOP\\mssqlserver;user=Shimshaker;password=Shake316497sql";
+    public static Connection conn;
 
+    static {
+        try {
+            conn = DriverManager.getConnection(dbURL);
+            if (conn != null) {
+                System.out.println("Connected");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
     private final Scanner sc = new Scanner(System.in);
     private final Timer waitTime = new Timer();
     private final  Map<Integer, Contact> contactId = new HashMap<>();
@@ -14,7 +31,7 @@ public class InterfaceConsole {
     boolean quit;
 
     public void start(){
-
+//            readData();
         do {
             System.out.println("Bienvenue dans votre gestionnaire de contact");
             System.out.println("Içi vous pouvez effectuez divers taches sur vos contact");
@@ -61,11 +78,11 @@ public class InterfaceConsole {
                         System.out.println("Veuillez entrez les remarques éventuel à indiquez");
                         String contactRemarque = sc.nextLine();
 
-                        //String newcontact = UUID.randomUUID().toString();
+                        String newcontact = UUID.randomUUID().toString();
 
                         int newIdMap = contactId.size() + 1;
 
-                        contactId.put(newIdMap, new Contact(newIdMap, contactName, contactPrenom, contactNickName, contactDateDeNaissance, contactNationalite, contactAdresse, contactNumero, contactNumeroBoite, contactCodePostal, contactPays, contactTelFixe, contactSmartPhone, contactEmail, contactRemarque));
+                        contactId.put(newIdMap, new Contact(newcontact, contactName, contactPrenom, contactNickName, contactDateDeNaissance, contactNationalite, contactAdresse, contactNumero, contactNumeroBoite, contactCodePostal, contactPays, contactTelFixe, contactSmartPhone, contactEmail, contactRemarque));
 
                     }catch (Exception e){
                         System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
@@ -147,4 +164,39 @@ public class InterfaceConsole {
 
 
     }
+    private static void readData() {
+        try {
+            String sql = "SELECT * FROM dbo.contact";
+
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+
+            int count = 0;
+
+            while (result.next()){
+                String id = result.getString(2);
+                String nom = result.getString(3);
+                String prenom = result.getString(4);
+                String nickname = result.getString(5);
+                Date birthdate = result.getDate(6);
+                String nationalite = result.getString(7);
+                String adresse = result.getString(8);
+                Integer numeros = result.getInt(9);
+                Integer boite = result.getInt(10);
+                String codepostal = result.getString(11);
+                String pays = result.getString(12);
+                String telephone = result.getString(13);
+                String smartphone = result.getString(14);
+                String email = result.getString(15);
+                String remarque = result.getString(16);
+
+                String output = "dbo.student #%d: %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s";
+                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }

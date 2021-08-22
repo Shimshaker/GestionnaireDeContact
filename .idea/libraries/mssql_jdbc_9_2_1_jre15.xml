@@ -2,6 +2,7 @@
   <library name="mssql-jdbc-9.2.1.jre15">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Sql/mysql-connector-java-8.0.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sql/mssql-jdbc-9.2.1.jre15.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

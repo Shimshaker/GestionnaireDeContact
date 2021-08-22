@@ -1,5 +1,8 @@
 package technobel_shimshaker;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -8,7 +11,7 @@ import java.util.UUID;
 
 public class Contact {
 
-    private int id;
+    private String id;
     private String nom;
     private String prenom;
     private String nickname;
@@ -24,7 +27,7 @@ public class Contact {
     private String email;
     private String remarque;
 
-    public Contact(int id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, int numero, int boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
+    public Contact(String id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, int numero, int boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -41,13 +44,14 @@ public class Contact {
         this.email = email;
         this.remarque = remarque;
         InterfaceConsole.contactList.add(this);
+        putinDb();
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -161,6 +165,37 @@ public class Contact {
 
     public void setRemarque(String remarque) {
         this.remarque = remarque;
+    }
+
+    public void putinDb(){
+
+        try{
+            String sql = "INSERT INTO contact (id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
+            statement.setString(1, id);
+            statement.setString(2, nom);
+            statement.setString(3, prenom);
+            statement.setString(4, nickname);
+            statement.setDate(5, Date.valueOf(date_de_Naissance));
+            statement.setString(6,nationalite);
+            statement.setString(7, adresse);
+            statement.setInt(8, numero);
+            statement.setInt(9,boite);
+            statement.setString(10, codepostal);
+            statement.setString(11, pays);
+            statement.setString(12, tel);
+            statement.setString(13, smartphone);
+            statement.setString(14,email);
+            statement.setString(15, remarque);
+
+            int rowsInserted = statement.executeUpdate();
+            if(rowsInserted > 0) {
+                System.out.println("Votre nouveau contact à été insérer");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
     }
 
     @Override
