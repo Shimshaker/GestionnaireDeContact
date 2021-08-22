@@ -44,7 +44,7 @@ public class Contact {
         this.email = email;
         this.remarque = remarque;
         InterfaceConsole.contactList.add(this);
-        putinDb();
+        createRows();
     }
 
     public String getId() {
@@ -167,7 +167,7 @@ public class Contact {
         this.remarque = remarque;
     }
 
-    public void putinDb(){
+    public void createRows(){
 
         try{
             String sql = "INSERT INTO contact (id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

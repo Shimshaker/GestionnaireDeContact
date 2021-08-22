@@ -25,7 +25,7 @@ public class InterfaceConsole {
     }
     private final Scanner sc = new Scanner(System.in);
     private final Timer waitTime = new Timer();
-    private final  Map<Integer, Contact> contactId = new HashMap<>();
+    private final  Map<String, Contact> contactId = new HashMap<>();
     public static final List<Contact> contactList = new ArrayList<>();
     private Object Contact;
     boolean quit;
@@ -80,9 +80,9 @@ public class InterfaceConsole {
 
                         String newcontact = UUID.randomUUID().toString();
 
-                        int newIdMap = contactId.size() + 1;
+                        //int newIdMap = contactId.size() + 1;
 
-                        contactId.put(newIdMap, new Contact(newcontact, contactName, contactPrenom, contactNickName, contactDateDeNaissance, contactNationalite, contactAdresse, contactNumero, contactNumeroBoite, contactCodePostal, contactPays, contactTelFixe, contactSmartPhone, contactEmail, contactRemarque));
+                        contactId.put(newcontact, new Contact(newcontact, contactName, contactPrenom, contactNickName, contactDateDeNaissance, contactNationalite, contactAdresse, contactNumero, contactNumeroBoite, contactCodePostal, contactPays, contactTelFixe, contactSmartPhone, contactEmail, contactRemarque));
 
                     }catch (Exception e){
                         System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
@@ -136,7 +136,9 @@ public class InterfaceConsole {
 
                     break;
                 case '3':
-
+                    System.out.println("Veuillez entrez le contact à modifier");
+                    String modIn = sc.nextLine();
+                    System.out.println(contactId.get(modIn));
                     break;
                 case '4':
                     contactList.stream()
@@ -145,7 +147,7 @@ public class InterfaceConsole {
 
                     break;
                 case '5':
-
+                    readData();
                     break;
                 case '6':
 
@@ -190,7 +192,7 @@ public class InterfaceConsole {
                 String email = result.getString(15);
                 String remarque = result.getString(16);
 
-                String output = "dbo.student #%d: %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s - %s";
+                String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
             }
