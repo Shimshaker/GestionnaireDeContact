@@ -6,7 +6,7 @@ public interface ContactDAO {
     void insert(Contact contact);
 
     //Read
-    Contact getOne(String id);
+    void getOne(String id);
     void getAll();
 
     // UPDATE
