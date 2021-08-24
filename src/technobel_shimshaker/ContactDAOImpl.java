@@ -114,7 +114,7 @@ public class ContactDAOImpl implements ContactDAO {
     @Override
     public void update(Contact contact) {
         try{
-            String sql = "INSERT INTO contact (id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO dbo.contact (id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
             statement.setString(1, contact.getId());
             statement.setString(2, contact.getNom());
@@ -144,6 +144,18 @@ public class ContactDAOImpl implements ContactDAO {
 
     @Override
     public void delete(String id) {
+        try {
+            String sql = "DELETE FROM dbo.contact WHERE id = ?";
+            PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
+            statement.setString(1, id);
 
+            int rowsDeleted = statement.executeUpdate();
+
+            if (rowsDeleted > 0){
+                System.out.println("Votre contact est éffacer..!");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

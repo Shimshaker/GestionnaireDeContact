@@ -17,6 +17,10 @@ public class Main {
             cd.insert(test);
 
             cd.getAll();
+
+            cd.delete("121312313213");
+
+            cd.getAll();
 //        InterfaceConsole ic = new InterfaceConsole();
 //        ic.start();
     }
