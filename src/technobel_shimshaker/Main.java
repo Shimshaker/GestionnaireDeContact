@@ -6,9 +6,12 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
 
+            ContactDAO cd = new ContactDAOImpl();
 
-        InterfaceConsole ic = new InterfaceConsole();
-        ic.start();
+            cd.getAll();
+
+//        InterfaceConsole ic = new InterfaceConsole();
+//        ic.start();
     }
 
 }

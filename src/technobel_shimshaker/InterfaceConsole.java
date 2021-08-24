@@ -8,18 +8,19 @@ import java.util.concurrent.TimeUnit;
 
 public class InterfaceConsole {
 
-    static String username = "Shimshaker";
-    static String password = "-vK$3Apytqq4dYKt";
-    static String dbURL = "jdbc:sqlserver://COSMOSDESKTOP\\mssqlserver;user=Shimshaker;password=Shake316497sql";
+    protected static String username = "Shimshaker";
+    protected static String password = "Shake316497sql";
+    private static String dbURL = "jdbc:sqlserver://COSMOSDESKTOP\\mssqlserver";
     public static Connection conn;
 
     static {
         try {
-            conn = DriverManager.getConnection(dbURL);
+            conn = DriverManager.getConnection(dbURL, username, password);
             if (conn != null) {
                 System.out.println("Connected");
             }
         } catch (SQLException throwables) {
+            System.out.println("Connection Fail");
             throwables.printStackTrace();
         }
     }
@@ -138,7 +139,9 @@ public class InterfaceConsole {
                 case '3':
                     System.out.println("Veuillez entrez le contact à modifier");
                     String modIn = sc.nextLine();
+                    readSelect(modIn);
                     System.out.println(contactId.get(modIn));
+
                     break;
                 case '4':
                     contactList.stream()
@@ -154,6 +157,11 @@ public class InterfaceConsole {
                     break;
                 case '7':
                     System.out.println("Merçi et au revoir...!");
+                    try {
+                        conn.close();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
                     quit = true;
                     break;
 
@@ -200,5 +208,41 @@ public class InterfaceConsole {
             throwables.printStackTrace();
         }
     }
+    private static void readSelect(String contactID) {
+        try {
+            String sql = "SELECT * FROM dbo.contact WHERE id = ?";
 
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, contactID);
+
+            ResultSet result = statement.executeQuery();
+
+            int count = 0;
+
+            while (result.next()) {
+                String id = result.getString(2);
+                String nom = result.getString(3);
+                String prenom = result.getString(4);
+                String nickname = result.getString(5);
+                Date birthdate = result.getDate(6);
+                String nationalite = result.getString(7);
+                String adresse = result.getString(8);
+                Integer numeros = result.getInt(9);
+                Integer boite = result.getInt(10);
+                String codepostal = result.getString(11);
+                String pays = result.getString(12);
+                String telephone = result.getString(13);
+                String smartphone = result.getString(14);
+                String email = result.getString(15);
+                String remarque = result.getString(16);
+
+                String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
+                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+            }
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+        }
+
+
+    }
 }
