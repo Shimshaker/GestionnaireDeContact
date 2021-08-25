@@ -46,7 +46,6 @@ public class Contact {
         this.email = email;
         this.remarque = remarque;
 
-
     }
 
     public String getId() {

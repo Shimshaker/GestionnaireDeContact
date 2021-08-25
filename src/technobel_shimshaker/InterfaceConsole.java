@@ -152,8 +152,6 @@ public class InterfaceConsole {
                                         System.out.println("Veuillez entrez les remarques éventuel à indiquez");
                                         String contactRemarqueUpdate = sc.nextLine();
 
-                                        String newcontact = UUID.randomUUID().toString();
-
                                         Contact contactUpdate = new Contact(idContact, contactNameUpdate, contactPrenomUpdate, contactNickNameUpdate, contactDateDeNaissanceUpdate, contactNationaliteUpdate, contactAdresseUpdate, contactNumeroUpdate, contactNumeroBoiteUpdate, contactCodePostalUpdate, contactPaysUpdate, contactTelFixeUpdate, contactSmartPhoneUpdate, contactEmailUpdate, contactRemarqueUpdate);
                                         dao.update(contactUpdate, idContact);
                                     }catch (Exception e){
@@ -182,13 +180,48 @@ public class InterfaceConsole {
                                 System.out.println("Veuillez entrez l'id exact de votre contact ");
                                 String idContact = sc.nextLine();
                                 System.out.println("Est-ce bien juste ? ");
-                                System.out.println("Vous voulez effacer ce contact ?... ");
+                                System.out.println("Vous voulez modifier ce contact ?... ");
                                 dao.getOne(idContact);
                                 System.out.println("1 - Oui ");
                                 System.out.println("2 - Nom ");
                                 char repfinal2 = sc.nextLine().charAt(0);
                                 if (repfinal2 == '1'){
-                                    dao.delete(idContact);
+                                    try {
+
+                                        System.out.println("Veuillez entrer le nom du contact à ajoutez : ");
+                                        String contactNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le prénom : ");
+                                        String contactPrenomUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le nickname (Si vous en avez un ... !) : ");
+                                        String contactNickNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre date de naissance (Au format jour/mois/année :");
+                                        String contactDateDeNaissanceUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez la nationalité :");
+                                        String contactNationaliteUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez l'adresse : ");
+                                        String contactAdresseUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de maison ou block : ");
+                                        Integer contactNumeroUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le numéro de boite (Si il existe ...!) : ");
+                                        Integer contactNumeroBoiteUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le code postal : ");
+                                        String contactCodePostalUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le pays : ");
+                                        String contactPaysUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de Téléphone fixe : ");
+                                        String contactTelFixeUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros smartphone : ");
+                                        String contactSmartPhoneUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre adresse mail : ");
+                                        String contactEmailUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez les remarques éventuel à indiquez");
+                                        String contactRemarqueUpdate = sc.nextLine();
+
+                                        Contact contactUpdate = new Contact(idContact, contactNameUpdate, contactPrenomUpdate, contactNickNameUpdate, contactDateDeNaissanceUpdate, contactNationaliteUpdate, contactAdresseUpdate, contactNumeroUpdate, contactNumeroBoiteUpdate, contactCodePostalUpdate, contactPaysUpdate, contactTelFixeUpdate, contactSmartPhoneUpdate, contactEmailUpdate, contactRemarqueUpdate);
+                                        dao.update(contactUpdate, idContact);
+                                    }catch (Exception e){
+                                        System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
+                                    }
                                 }else if(repfinal2 == '2'){
                                     System.out.println("Pas d'opération sur le contact");
                                 }
@@ -211,13 +244,47 @@ public class InterfaceConsole {
                                 System.out.println("Veuillez entrez l'id exact de votre contact ");
                                 String idContact = sc.nextLine();
                                 System.out.println("Est-ce bien juste ? ");
-                                System.out.println("Vous voulez effacer ce contact ?... ");
+                                System.out.println("Vous voulez modifier ce contact ?... ");
                                 dao.getOne(idContact);
                                 System.out.println("1 - Oui ");
                                 System.out.println("2 - Nom ");
                                 char repfinal3 = sc.nextLine().charAt(0);
                                 if (repfinal3 == '1'){
-                                    dao.delete(idContact);
+                                    try {
+                                        System.out.println("Veuillez entrer le nom du contact à ajoutez : ");
+                                        String contactNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le prénom : ");
+                                        String contactPrenomUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le nickname (Si vous en avez un ... !) : ");
+                                        String contactNickNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre date de naissance (Au format jour/mois/année :");
+                                        String contactDateDeNaissanceUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez la nationalité :");
+                                        String contactNationaliteUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez l'adresse : ");
+                                        String contactAdresseUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de maison ou block : ");
+                                        Integer contactNumeroUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le numéro de boite (Si il existe ...!) : ");
+                                        Integer contactNumeroBoiteUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le code postal : ");
+                                        String contactCodePostalUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le pays : ");
+                                        String contactPaysUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de Téléphone fixe : ");
+                                        String contactTelFixeUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros smartphone : ");
+                                        String contactSmartPhoneUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre adresse mail : ");
+                                        String contactEmailUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez les remarques éventuel à indiquez");
+                                        String contactRemarqueUpdate = sc.nextLine();
+
+                                        Contact contactUpdate = new Contact(idContact, contactNameUpdate, contactPrenomUpdate, contactNickNameUpdate, contactDateDeNaissanceUpdate, contactNationaliteUpdate, contactAdresseUpdate, contactNumeroUpdate, contactNumeroBoiteUpdate, contactCodePostalUpdate, contactPaysUpdate, contactTelFixeUpdate, contactSmartPhoneUpdate, contactEmailUpdate, contactRemarqueUpdate);
+                                        dao.update(contactUpdate, idContact);
+                                    }catch (Exception e){
+                                        System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
+                                    }
                                 }else if(repfinal3 == '2'){
                                     System.out.println("Pas d'opération sur le contact");
                                 }
@@ -240,13 +307,47 @@ public class InterfaceConsole {
                                 System.out.println("Veuillez entrez l'id exact de votre contact ");
                                 String idContact = sc.nextLine();
                                 System.out.println("Est-ce bien juste ? ");
-                                System.out.println("Vous voulez effacer ce contact ?... ");
+                                System.out.println("Vous voulez modifier ce contact ?... ");
                                 dao.getOne(idContact);
                                 System.out.println("1 - Oui ");
                                 System.out.println("2 - Nom ");
                                 char repfinal4 = sc.nextLine().charAt(0);
                                 if (repfinal4 == '1'){
-                                    dao.delete(idContact);
+                                    try {
+                                        System.out.println("Veuillez entrer le nom du contact à ajoutez : ");
+                                        String contactNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le prénom : ");
+                                        String contactPrenomUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le nickname (Si vous en avez un ... !) : ");
+                                        String contactNickNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre date de naissance (Au format jour/mois/année :");
+                                        String contactDateDeNaissanceUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez la nationalité :");
+                                        String contactNationaliteUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez l'adresse : ");
+                                        String contactAdresseUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de maison ou block : ");
+                                        Integer contactNumeroUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le numéro de boite (Si il existe ...!) : ");
+                                        Integer contactNumeroBoiteUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le code postal : ");
+                                        String contactCodePostalUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le pays : ");
+                                        String contactPaysUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de Téléphone fixe : ");
+                                        String contactTelFixeUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros smartphone : ");
+                                        String contactSmartPhoneUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre adresse mail : ");
+                                        String contactEmailUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez les remarques éventuel à indiquez");
+                                        String contactRemarqueUpdate = sc.nextLine();
+
+                                        Contact contactUpdate = new Contact(idContact, contactNameUpdate, contactPrenomUpdate, contactNickNameUpdate, contactDateDeNaissanceUpdate, contactNationaliteUpdate, contactAdresseUpdate, contactNumeroUpdate, contactNumeroBoiteUpdate, contactCodePostalUpdate, contactPaysUpdate, contactTelFixeUpdate, contactSmartPhoneUpdate, contactEmailUpdate, contactRemarqueUpdate);
+                                        dao.update(contactUpdate, idContact);
+                                    }catch (Exception e){
+                                        System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
+                                    }
                                 }else if(repfinal4 == '2'){
                                     System.out.println("Pas d'opération sur le contact");
                                 }
@@ -275,7 +376,41 @@ public class InterfaceConsole {
                                 System.out.println("2 - Nom ");
                                 char repfinal5 = sc.nextLine().charAt(0);
                                 if (repfinal5 == '1'){
-                                    dao.delete(idContact);
+                                    try {
+                                        System.out.println("Veuillez entrer le nom du contact à ajoutez : ");
+                                        String contactNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le prénom : ");
+                                        String contactPrenomUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le nickname (Si vous en avez un ... !) : ");
+                                        String contactNickNameUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre date de naissance (Au format jour/mois/année :");
+                                        String contactDateDeNaissanceUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez la nationalité :");
+                                        String contactNationaliteUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez l'adresse : ");
+                                        String contactAdresseUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de maison ou block : ");
+                                        Integer contactNumeroUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le numéro de boite (Si il existe ...!) : ");
+                                        Integer contactNumeroBoiteUpdate = Integer.parseInt(sc.nextLine());
+                                        System.out.println("Veuillez entrez le code postal : ");
+                                        String contactCodePostalUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le pays : ");
+                                        String contactPaysUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros de Téléphone fixe : ");
+                                        String contactTelFixeUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez le numéros smartphone : ");
+                                        String contactSmartPhoneUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez votre adresse mail : ");
+                                        String contactEmailUpdate = sc.nextLine();
+                                        System.out.println("Veuillez entrez les remarques éventuel à indiquez");
+                                        String contactRemarqueUpdate = sc.nextLine();
+
+                                        Contact contactUpdate = new Contact(idContact, contactNameUpdate, contactPrenomUpdate, contactNickNameUpdate, contactDateDeNaissanceUpdate, contactNationaliteUpdate, contactAdresseUpdate, contactNumeroUpdate, contactNumeroBoiteUpdate, contactCodePostalUpdate, contactPaysUpdate, contactTelFixeUpdate, contactSmartPhoneUpdate, contactEmailUpdate, contactRemarqueUpdate);
+                                        dao.update(contactUpdate, idContact);
+                                    }catch (Exception e){
+                                        System.out.println(new StringBuilder().append("Apparement il y a eu une erreur veuillez recommence et l'exception est : ").append(e.fillInStackTrace()));
+                                    }
                                 }else if(repfinal5 == '2'){
                                     System.out.println("Pas d'opération sur le contact");
                                 }
@@ -287,13 +422,51 @@ public class InterfaceConsole {
                             System.out.println("Votre entrez ne correspond à aucunes des propositions");
 
                     }
-
                     break;
                 case '3':
-                    System.out.println("Veuillez entrez le contact à modifier");
-                    String modIn = sc.nextLine();
-                    readSelect(modIn);
-                    System.out.println(contactId.get(modIn));
+                    System.out.println("Veuillez entrez les informations du contact à rechercher");
+                    System.out.println("Par quels références voulez-vous effectuez votre recherche ?");
+                    System.out.println("1 - Son nom :");
+                    System.out.println("2 - Son prénom :");
+                    System.out.println("3 - Son adresse :");
+                    System.out.println("4 - Sa date de naissance :");
+                    System.out.println("5 - Son Identifiant :");
+                    char choice3 = sc.nextLine().charAt(0);
+
+                    switch (choice3){
+                        case '1':
+                            System.out.println("Veuillez entrez son nom :");
+                            String contactName = sc.nextLine();
+                            System.out.println("Voiçi la liste des contact en rapport avec ce nom :");
+                            dao.getOneByName(contactName);
+                            break;
+                        case '2':
+                            System.out.println("Veuillez entrez son prenom :");
+                            String contactPrenom = sc.nextLine();
+                            System.out.println("Voiçi la liste des contact en rapport avec ce prénom :");
+                            dao.getOneByFirstName(contactPrenom);
+                            break;
+                        case '3':
+                            System.out.println("Veuillez entrez son adresse :");
+                            String contactAdresse = sc.nextLine();
+                            System.out.println("Voiçi la liste des contact en rapport avec cette adresse:");
+                            dao.getOneByAdress(contactAdresse);
+                            break;
+                        case '4':
+                            System.out.println("Veuillez entre la date de Naissance de votre contact");
+                            String contactDateDeNaissance = sc.nextLine();
+                            System.out.println("Voiçi la liste des contact en rapport avec ces date de naissances:");
+                            dao.getOneByBirthDate(contactDateDeNaissance);
+                            break;
+                        case '5':
+                            System.out.println("Veuillez entrez l'id de votre contact");
+                            String contactId = sc.nextLine();
+                            System.out.println("Voiçi le contact en rapport avec l'Id  :");
+                            dao.getOne(contactId);
+                            break;
+                        default:
+                    }
+
 
                     break;
                 case '4':
@@ -522,4 +695,5 @@ public class InterfaceConsole {
 
 
     }
+
 }

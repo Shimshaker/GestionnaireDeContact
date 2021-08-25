@@ -69,7 +69,7 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println("Et votre contact : ");
+                System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
             }else {
@@ -91,7 +91,8 @@ public class ContactDAOImpl implements ContactDAO {
 
             int count = 0;
 
-            if(result.next()) {
+            System.out.println("Et voiçi les contacts : ");
+            while(result.next()) {
                 String id = result.getString(2);
                 String nom = result.getString(3);
                 String prenom = result.getString(4);
@@ -109,13 +110,19 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println("Et notre getOne : ");
+
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
-            }else {
-                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+
 
             }
+
+            if (count == 0){
+                System.out.println("");
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+            }
+
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -133,7 +140,7 @@ public class ContactDAOImpl implements ContactDAO {
 
             int count = 0;
 
-            if(result.next()) {
+            while(result.next()) {
                 String id = result.getString(2);
                 String nom = result.getString(3);
                 String prenom = result.getString(4);
@@ -151,13 +158,16 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println("Et notre getOne : ");
+                System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
-            }else {
-                System.out.println("Votre contact n'existe pas dans votre base de données...!");
 
             }
+            if (count == 0){
+                System.out.println("");
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+            }
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -174,8 +184,8 @@ public class ContactDAOImpl implements ContactDAO {
             ResultSet result = statement.executeQuery();
 
             int count = 0;
-
-            if(result.next()) {
+            System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
+            while(result.next()) {
                 String id = result.getString(2);
                 String nom = result.getString(3);
                 String prenom = result.getString(4);
@@ -193,12 +203,15 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println("Et notre getOne : ");
+
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
-            }else {
-                System.out.println("Votre contact n'existe pas dans votre base de données...!");
 
+            }
+
+            if (count == 0){
+                System.out.println("");
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -218,8 +231,8 @@ public class ContactDAOImpl implements ContactDAO {
             ResultSet result = statement.executeQuery();
 
             int count = 0;
-
-            if(result.next()) {
+            System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
+            while (result.next()) {
                 String id = result.getString(2);
                 String nom = result.getString(3);
                 String prenom = result.getString(4);
@@ -237,12 +250,14 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println("Et notre getOne : ");
+
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
-            }else {
-                System.out.println("Votre contact n'existe pas dans votre base de données...!");
 
+            }
+            if (count == 0){
+                System.out.println("");
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
