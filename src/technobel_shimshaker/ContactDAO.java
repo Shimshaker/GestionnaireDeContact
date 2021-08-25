@@ -7,10 +7,14 @@ public interface ContactDAO {
 
     //Read
     void getOne(String id);
+    void getOneByName(String contactNom);
+    void getOneByFirstName(String contactPrenom);
+    void getOneByAdress(String contactAdresse);
+    void getOneByBirthDate(String contactDateDeNaissance);
     void getAll();
 
     // UPDATE
-    void update(Contact contact);
+    void update(Contact contact, String idContact);
 
     //DELETE
     void delete(String id);

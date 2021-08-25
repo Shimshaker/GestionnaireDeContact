@@ -1,6 +1,11 @@
 package technobel_shimshaker;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.time.format.DateTimeFormatter;
+
+import static java.time.LocalDate.parse;
 
 public class ContactDAOImpl implements ContactDAO {
 
@@ -27,7 +32,7 @@ public class ContactDAOImpl implements ContactDAO {
 
             int rowsInserted = statement.executeUpdate();
             if(rowsInserted > 0) {
-                System.out.println("Votre nouveau contact à été insérer");
+                System.out.println("Votre nouveau contact à bien été insérer");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -64,11 +69,180 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
+                System.out.println("Et votre contact : ");
+                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+
+            }else {
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    @Override
+    public void getOneByName(String contactNom) {
+        try {
+            String sql = "SELECT * FROM dbo.contact WHERE nom = ?";
+
+            PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
+            statement.setString(1, contactNom);
+
+            ResultSet result = statement.executeQuery();
+
+            int count = 0;
+
+            if(result.next()) {
+                String id = result.getString(2);
+                String nom = result.getString(3);
+                String prenom = result.getString(4);
+                String nickname = result.getString(5);
+                Date birthdate = result.getDate(6);
+                String nationalite = result.getString(7);
+                String adresse = result.getString(8);
+                Integer numeros = result.getInt(9);
+                Integer boite = result.getInt(10);
+                String codepostal = result.getString(11);
+                String pays = result.getString(12);
+                String telephone = result.getString(13);
+                String smartphone = result.getString(14);
+                String email = result.getString(15);
+                String remarque = result.getString(16);
+
+                String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
                 System.out.println("Et notre getOne : ");
                 System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
 
             }else {
                 System.out.println("Votre contact n'existe pas dans votre base de données...!");
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void getOneByFirstName(String contactPrenom) {
+        try {
+            String sql = "SELECT * FROM dbo.contact WHERE prenom = ?";
+
+            PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
+            statement.setString(1, contactPrenom);
+
+            ResultSet result = statement.executeQuery();
+
+            int count = 0;
+
+            if(result.next()) {
+                String id = result.getString(2);
+                String nom = result.getString(3);
+                String prenom = result.getString(4);
+                String nickname = result.getString(5);
+                Date birthdate = result.getDate(6);
+                String nationalite = result.getString(7);
+                String adresse = result.getString(8);
+                Integer numeros = result.getInt(9);
+                Integer boite = result.getInt(10);
+                String codepostal = result.getString(11);
+                String pays = result.getString(12);
+                String telephone = result.getString(13);
+                String smartphone = result.getString(14);
+                String email = result.getString(15);
+                String remarque = result.getString(16);
+
+                String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
+                System.out.println("Et notre getOne : ");
+                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+
+            }else {
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void getOneByAdress(String contactAdresse) {
+        try {
+            String sql = "SELECT * FROM dbo.contact WHERE adresse = ?";
+
+            PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
+            statement.setString(1, contactAdresse);
+
+            ResultSet result = statement.executeQuery();
+
+            int count = 0;
+
+            if(result.next()) {
+                String id = result.getString(2);
+                String nom = result.getString(3);
+                String prenom = result.getString(4);
+                String nickname = result.getString(5);
+                Date birthdate = result.getDate(6);
+                String nationalite = result.getString(7);
+                String adresse = result.getString(8);
+                Integer numeros = result.getInt(9);
+                Integer boite = result.getInt(10);
+                String codepostal = result.getString(11);
+                String pays = result.getString(12);
+                String telephone = result.getString(13);
+                String smartphone = result.getString(14);
+                String email = result.getString(15);
+                String remarque = result.getString(16);
+
+                String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
+                System.out.println("Et notre getOne : ");
+                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+
+            }else {
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void getOneByBirthDate(String contactDateDeNaissance) {
+        try {
+            String sql = "SELECT * FROM dbo.contact WHERE birthdate = ?";
+
+            LocalDate contactDateDeNai = parse(contactDateDeNaissance, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+            PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
+            statement.setDate(1, Date.valueOf(contactDateDeNai));
+
+            ResultSet result = statement.executeQuery();
+
+            int count = 0;
+
+            if(result.next()) {
+                String id = result.getString(2);
+                String nom = result.getString(3);
+                String prenom = result.getString(4);
+                String nickname = result.getString(5);
+                Date birthdate = result.getDate(6);
+                String nationalite = result.getString(7);
+                String adresse = result.getString(8);
+                Integer numeros = result.getInt(9);
+                Integer boite = result.getInt(10);
+                String codepostal = result.getString(11);
+                String pays = result.getString(12);
+                String telephone = result.getString(13);
+                String smartphone = result.getString(14);
+                String email = result.getString(15);
+                String remarque = result.getString(16);
+
+                String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
+                System.out.println("Et notre getOne : ");
+                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+
+            }else {
+                System.out.println("Votre contact n'existe pas dans votre base de données...!");
+
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -112,9 +286,9 @@ public class ContactDAOImpl implements ContactDAO {
     }
 
     @Override
-    public void update(Contact contact) {
+    public void update(Contact contact, String contactId) {
         try{
-            String sql = "INSERT INTO dbo.contact (id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "UPDATE dbo.contact SET id=?, nom=?, prenom=?, nickname=?, birthdate=?, nationalite=?, adresse=?, numeros=?, boite=?, codepostal=?, pays=?, telephone=?, smartphone=?, email=?, remarque=? WHERE id=?";
             PreparedStatement statement = InterfaceConsole.conn.prepareStatement(sql);
             statement.setString(1, contact.getId());
             statement.setString(2, contact.getNom());
@@ -131,10 +305,11 @@ public class ContactDAOImpl implements ContactDAO {
             statement.setString(13, contact.getSmartphone());
             statement.setString(14, contact.getEmail());
             statement.setString(15, contact.getRemarque());
+            statement.setString(16, contactId);
 
             int rowsInserted = statement.executeUpdate();
             if(rowsInserted > 0) {
-                System.out.println("Votre nouveau contact à été insérer");
+                System.out.println("Votre contact à été mise à jour");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
