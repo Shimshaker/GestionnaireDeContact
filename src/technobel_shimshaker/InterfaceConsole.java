@@ -30,7 +30,7 @@ public class InterfaceConsole {
     private Object Contact;
     boolean quit;
 
-    // Point de démmarrage
+    // Point de démmarrage...
     public void start(){
         // Initialisation du Database Access Object
         ContactDAO dao = new ContactDAOImpl();
@@ -49,7 +49,7 @@ public class InterfaceConsole {
             System.out.println("7 - Quitter");
             char choice = sc.nextLine().charAt(0);
 
-            // Choix des menus
+            // Choix des menus...
             switch (choice){
                 case '1':
                     // Création d'une insertion d'Objet contact pour la base de données...
@@ -104,7 +104,7 @@ public class InterfaceConsole {
                     System.out.println("5 - Son Identifiant :");
                     char choice2 = sc.nextLine().charAt(0);
                     switch (choice2) {
-                        // En fonction de son nom
+                        // En fonction de son nom...
                         case '1' -> {
                             System.out.println("Veuillez entrez son nom :");
                             String contactName = sc.nextLine();
@@ -168,7 +168,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
-                        //En fonction de son prénom
+                        //En fonction de son prénom...
                         case '2' -> {
                             System.out.println("Veuillez entrez son prenom :");
                             String contactPrenom = sc.nextLine();
@@ -231,7 +231,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
-                        // En fonction de son adresse
+                        // En fonction de son adresse...
                         case '3' -> {
                             System.out.println("Veuillez entrez son adresse :");
                             String contactAdresse = sc.nextLine();
@@ -355,7 +355,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
-                        // En fonction de son Id
+                        // En fonction de son Id...
                         case '5' -> {
                             System.out.println("Veuillez entrez l'id de votre contact");
                             String contactId = sc.nextLine();
@@ -420,7 +420,7 @@ public class InterfaceConsole {
                         default -> System.out.println("Votre entrez ne correspond à aucunes des propositions");
                     }
                     break;
-                // Effectuez une recherche à travers les contacts
+                // Effectuez une recherche à travers les contacts...
                 case '3':
                     System.out.println("Veuillez entrez les informations du contact à rechercher");
                     System.out.println("Par quels références voulez-vous effectuez votre recherche ?");
@@ -432,35 +432,35 @@ public class InterfaceConsole {
                     char choice3 = sc.nextLine().charAt(0);
 
                     switch (choice3){
-                        // En fonction de son nom
+                        // En fonction de son nom...
                         case '1':
                             System.out.println("Veuillez entrez son nom :");
                             String contactName = sc.nextLine();
                             System.out.println("Voiçi la liste des contact en rapport avec ce nom :");
                             dao.getOneByName(contactName);
                             break;
-                        // En fonction de son prénom
+                        // En fonction de son prénom...
                         case '2':
                             System.out.println("Veuillez entrez son prenom :");
                             String contactPrenom = sc.nextLine();
                             System.out.println("Voiçi la liste des contact en rapport avec ce prénom :");
                             dao.getOneByFirstName(contactPrenom);
                             break;
-                        // En fonction de son adresse
+                        // En fonction de son adresse...
                         case '3':
                             System.out.println("Veuillez entrez son adresse :");
                             String contactAdresse = sc.nextLine();
                             System.out.println("Voiçi la liste des contact en rapport avec cette adresse:");
                             dao.getOneByAdress(contactAdresse);
                             break;
-                        // En fonction de sa date de naissance
+                        // En fonction de sa date de naissance...
                         case '4':
                             System.out.println("Veuillez entre la date de Naissance de votre contact");
                             String contactDateDeNaissance = sc.nextLine();
                             System.out.println("Voiçi la liste des contact en rapport avec ces date de naissances:");
                             dao.getOneByBirthDate(contactDateDeNaissance);
                             break;
-                        // En fonction de son Id
+                        // En fonction de son Id...
                         case '5':
                             System.out.println("Veuillez entrez l'id de votre contact");
                             String contactId = sc.nextLine();
@@ -491,6 +491,7 @@ public class InterfaceConsole {
                     System.out.println("5 - Son Identifiant :");
                     char choice6 = sc.nextLine().charAt(0);
                     switch (choice6) {
+                        // En fonction de son nom...
                         case '1' -> {
                             System.out.println("Veuillez entrez son nom :");
                             String contactName = sc.nextLine();
@@ -519,6 +520,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
+                        // En fonction de son prénom
                         case '2' -> {
                             System.out.println("Veuillez entrez son prenom :");
                             String contactPrenom = sc.nextLine();
@@ -546,6 +548,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
+                        // En fonction de son adresse...
                         case '3' -> {
                             System.out.println("Veuillez entrez son adresse :");
                             String contactAdresse = sc.nextLine();
@@ -573,6 +576,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
+                        // En fonction de sa date de naissance...
                         case '4' -> {
                             System.out.println("Veuillez entre la date de Naissance de votre contact");
                             String contactDateDeNaissance = sc.nextLine();
@@ -600,6 +604,7 @@ public class InterfaceConsole {
                                 System.out.println("Pas d'opération sur le contact..");
                             }
                         }
+                        // En fonction de l'id du contact...
                         case '5' -> {
                             System.out.println("Veuillez entrez l'id de votre contact");
                             String contactId = sc.nextLine();
@@ -631,8 +636,10 @@ public class InterfaceConsole {
                     }
 
                     break;
+                // Sortie et cloture de sql
                 case '7':
                     System.out.println("Merçi et au revoir...!");
+                    // Fermeture de la connexion sql...
                     try {
                         conn.close();
                     } catch (SQLException throwables) {
