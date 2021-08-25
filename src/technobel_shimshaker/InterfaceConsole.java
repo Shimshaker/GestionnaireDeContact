@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class InterfaceConsole {
-
+    // Déclaration des
     protected static String username = "Shimshaker";
     protected static String password = "Shake316497sql";
     private static String dbURL = "jdbc:sqlserver://COSMOSDESKTOP\\mssqlserver";
@@ -35,6 +35,7 @@ public class InterfaceConsole {
         ContactDAO dao = new ContactDAOImpl();
 
         do {
+            System.out.println("");
             System.out.println("Bienvenue dans votre gestionnaire de contact");
             System.out.println("Içi vous pouvez effectuez divers taches sur vos contact");
             System.out.println("1 - Ajouter un contact dans votre gestionnaire");
@@ -633,7 +634,7 @@ public class InterfaceConsole {
                             }
                             break;
                         default:
-                            System.out.println("Votre entrez ne correspond à aucunes des propositions");
+                            System.out.println("Votre entré ne corresponds à aucunes des propositions");
 
                     }
 
@@ -695,5 +696,7 @@ public class InterfaceConsole {
 
 
     }
+
+
 
 }

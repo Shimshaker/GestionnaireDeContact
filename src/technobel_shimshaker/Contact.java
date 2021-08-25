@@ -1,14 +1,11 @@
 package technobel_shimshaker;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static java.time.LocalDate.*;
-import java.util.UUID;
 
+// Définitions de mes contacts
 public class Contact {
 
     private String id;
@@ -27,8 +24,10 @@ public class Contact {
     private String email;
     private String remarque;
 
+    // Initialisatiion des function DAO
     ContactDAO dao = new ContactDAOImpl();
 
+    // Constructeurs des objets contacts
     public Contact(String id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, int numero, int boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
         this.id = id;
         this.nom = nom;
@@ -48,6 +47,7 @@ public class Contact {
 
     }
 
+    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -84,6 +84,7 @@ public class Contact {
         return date_de_Naissance;
     }
 
+    //Parsing de la date de string à Date
     public void setDate_de_Naissance(String date_de_Naissance) {
         this.date_de_Naissance = parse(date_de_Naissance, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
@@ -168,6 +169,7 @@ public class Contact {
         this.remarque = remarque;
     }
 
+    // Function de creation chaine pour les contacts
     @Override
     public String toString() {
         DateTimeFormatter formDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");

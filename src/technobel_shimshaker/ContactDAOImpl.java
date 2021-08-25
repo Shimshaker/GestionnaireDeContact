@@ -1,14 +1,15 @@
 package technobel_shimshaker;
-
+// Import des packages utilisé
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.time.format.DateTimeFormatter;
 
 import static java.time.LocalDate.parse;
 
+// Fonction DataBase Access Object
 public class ContactDAOImpl implements ContactDAO {
 
+    // Fonction D'insertions d'objets contact dans la Database...
     @Override
     public void insert(Contact contact) {
         try{
@@ -39,6 +40,7 @@ public class ContactDAOImpl implements ContactDAO {
         }
     }
 
+    // Fonction de récupération contact à l'aide de son Id...
     @Override
     public void getOne(String contactId) {
         try {
@@ -70,7 +72,7 @@ public class ContactDAOImpl implements ContactDAO {
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
                 System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
-                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+                System.out.printf((output) + "%n", ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque);
 
             }else {
                 System.out.println("Votre contact n'existe pas dans votre base de données...!");
@@ -79,6 +81,8 @@ public class ContactDAOImpl implements ContactDAO {
             throwables.printStackTrace();
         }
     }
+
+    // Fonction de récupération d'un contact par son nom...
     @Override
     public void getOneByName(String contactNom) {
         try {
@@ -111,14 +115,14 @@ public class ContactDAOImpl implements ContactDAO {
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
 
-                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+                System.out.printf((output) + "%n", ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque);
 
 
 
             }
 
             if (count == 0){
-                System.out.println("");
+                System.out.println();
                 System.out.println("Votre contact n'existe pas dans votre base de données...!");
             }
 
@@ -127,7 +131,7 @@ public class ContactDAOImpl implements ContactDAO {
             throwables.printStackTrace();
         }
     }
-
+    // Fonction de récupération contacts par le prénom...
     @Override
     public void getOneByFirstName(String contactPrenom) {
         try {
@@ -139,7 +143,7 @@ public class ContactDAOImpl implements ContactDAO {
             ResultSet result = statement.executeQuery();
 
             int count = 0;
-
+            System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
             while(result.next()) {
                 String id = result.getString(2);
                 String nom = result.getString(3);
@@ -158,13 +162,13 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println("Et voiçi les contacts correspondant a votre recherche : ");
-                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+
+                System.out.printf((output) + "%n", ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque);
 
 
             }
             if (count == 0){
-                System.out.println("");
+                System.out.println();
                 System.out.println("Votre contact n'existe pas dans votre base de données...!");
             }
 
@@ -172,7 +176,7 @@ public class ContactDAOImpl implements ContactDAO {
             throwables.printStackTrace();
         }
     }
-
+    // Fonction de récupération d'un contact par son adresse...
     @Override
     public void getOneByAdress(String contactAdresse) {
         try {
@@ -204,13 +208,13 @@ public class ContactDAOImpl implements ContactDAO {
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
 
-                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+                System.out.printf((output) + "%n", ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque);
 
 
             }
 
             if (count == 0){
-                System.out.println("");
+                System.out.println();
                 System.out.println("Votre contact n'existe pas dans votre base de données...!");
             }
         } catch (SQLException throwables) {
@@ -218,6 +222,7 @@ public class ContactDAOImpl implements ContactDAO {
         }
     }
 
+    // Fonction de récupération d'un contact par sa date de naissance...
     @Override
     public void getOneByBirthDate(String contactDateDeNaissance) {
         try {
@@ -251,12 +256,12 @@ public class ContactDAOImpl implements ContactDAO {
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
 
-                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+                System.out.printf((output) + "%n", ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque);
 
 
             }
             if (count == 0){
-                System.out.println("");
+                System.out.println();
                 System.out.println("Votre contact n'existe pas dans votre base de données...!");
             }
         } catch (SQLException throwables) {
@@ -264,7 +269,8 @@ public class ContactDAOImpl implements ContactDAO {
         }
     }
 
-        @Override
+    // Fonction de récupération de l'ensemble des contacts
+    @Override
     public void getAll() {
         try {
             Statement statement = InterfaceConsole.conn.createStatement();
@@ -291,7 +297,7 @@ public class ContactDAOImpl implements ContactDAO {
                 String remarque = result.getString(16);
 
                 String output = "dbo.contact #%d: Contact id: %s - Nom: %s - Prénom: %s - Nickname: %s - Date de Naissance: %s - Nationalité: %s - Adresse: %s - Numero: %s - N° de Boîte: %s - Code Postal: %s - Pays: %s - Tel Fixe: %s - Tel Mobile: %s - Email: %s - Remarque: %s";
-                System.out.println(String.format(output, ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque));
+                System.out.printf((output) + "%n", ++count, id, nom, prenom, nickname, birthdate, nationalite, adresse, numeros, boite, codepostal, pays, telephone, smartphone, email, remarque);
 
             }
 
@@ -300,6 +306,7 @@ public class ContactDAOImpl implements ContactDAO {
         }
     }
 
+    //Fonction de mise à jour d'un objet contact...
     @Override
     public void update(Contact contact, String contactId) {
         try{
@@ -332,6 +339,8 @@ public class ContactDAOImpl implements ContactDAO {
 
     }
 
+
+    // Fonction pour éffacé un contact à l'aide son id...
     @Override
     public void delete(String id) {
         try {
@@ -342,7 +351,7 @@ public class ContactDAOImpl implements ContactDAO {
             int rowsDeleted = statement.executeUpdate();
 
             if (rowsDeleted > 0){
-                System.out.println("Votre contact est éffacer..!");
+                System.out.println("Votre contact est éffacé..!");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

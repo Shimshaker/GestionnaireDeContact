@@ -1,11 +1,11 @@
 package technobel_shimshaker;
-
+// Interface DataBase Access Objet
 public interface ContactDAO {
 
-    //CREATE
+    //CREATE Fonction de création de contact
     void insert(Contact contact);
 
-    //Read
+    //Read Fonction de lecture sur les contacts
     void getOne(String id);
     void getOneByName(String contactNom);
     void getOneByFirstName(String contactPrenom);
@@ -13,10 +13,10 @@ public interface ContactDAO {
     void getOneByBirthDate(String contactDateDeNaissance);
     void getAll();
 
-    // UPDATE
+    // UPDATE Fonction de mise à jour sur les contacts
     void update(Contact contact, String idContact);
 
-    //DELETE
+    //DELETE Fonction de suppréssion sur les contacts
     void delete(String id);
 
 
