@@ -16,7 +16,7 @@ public class InterfaceConsole {
         try {
             conn = DriverManager.getConnection(dbURL, username, password);
             if (conn != null) {
-                System.out.println("Connected");
+                System.out.println("Connected on DataBase Contact");
             }
         } catch (SQLException throwables) {
             System.out.println("Connection Fail");
