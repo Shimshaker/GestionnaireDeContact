@@ -22,8 +22,8 @@ public class ContactDAOImpl implements ContactDAO {
             statement.setDate(5, Date.valueOf(contact.getDate_de_Naissance()));
             statement.setString(6, contact.getNationalite());
             statement.setString(7, contact.getAdresse());
-            statement.setInt(8, contact.getNumero());
-            statement.setInt(9,contact.getBoite());
+            statement.setString(8, contact.getNumero());
+            statement.setString(9,contact.getBoite());
             statement.setString(10, contact.getCodepostal());
             statement.setString(11, contact.getPays());
             statement.setString(12, contact.getTel());
@@ -61,8 +61,8 @@ public class ContactDAOImpl implements ContactDAO {
                 Date birthdate = result.getDate(6);
                 String nationalite = result.getString(7);
                 String adresse = result.getString(8);
-                Integer numeros = result.getInt(9);
-                Integer boite = result.getInt(10);
+                String numeros = result.getString(9);
+                String boite = result.getString(10);
                 String codepostal = result.getString(11);
                 String pays = result.getString(12);
                 String telephone = result.getString(13);
@@ -104,8 +104,8 @@ public class ContactDAOImpl implements ContactDAO {
                 Date birthdate = result.getDate(6);
                 String nationalite = result.getString(7);
                 String adresse = result.getString(8);
-                Integer numeros = result.getInt(9);
-                Integer boite = result.getInt(10);
+                String numeros = result.getString(9);
+                String boite = result.getString(10);
                 String codepostal = result.getString(11);
                 String pays = result.getString(12);
                 String telephone = result.getString(13);
@@ -152,8 +152,8 @@ public class ContactDAOImpl implements ContactDAO {
                 Date birthdate = result.getDate(6);
                 String nationalite = result.getString(7);
                 String adresse = result.getString(8);
-                Integer numeros = result.getInt(9);
-                Integer boite = result.getInt(10);
+                String numeros = result.getString(9);
+                String boite = result.getString(10);
                 String codepostal = result.getString(11);
                 String pays = result.getString(12);
                 String telephone = result.getString(13);
@@ -197,8 +197,8 @@ public class ContactDAOImpl implements ContactDAO {
                 Date birthdate = result.getDate(6);
                 String nationalite = result.getString(7);
                 String adresse = result.getString(8);
-                Integer numeros = result.getInt(9);
-                Integer boite = result.getInt(10);
+                String numeros = result.getString(9);
+                String boite = result.getString(10);
                 String codepostal = result.getString(11);
                 String pays = result.getString(12);
                 String telephone = result.getString(13);
@@ -245,8 +245,8 @@ public class ContactDAOImpl implements ContactDAO {
                 Date birthdate = result.getDate(6);
                 String nationalite = result.getString(7);
                 String adresse = result.getString(8);
-                Integer numeros = result.getInt(9);
-                Integer boite = result.getInt(10);
+                String numeros = result.getString(9);
+                String boite = result.getString(10);
                 String codepostal = result.getString(11);
                 String pays = result.getString(12);
                 String telephone = result.getString(13);
@@ -287,8 +287,8 @@ public class ContactDAOImpl implements ContactDAO {
                 Date birthdate = result.getDate(6);
                 String nationalite = result.getString(7);
                 String adresse = result.getString(8);
-                Integer numeros = result.getInt(9);
-                Integer boite = result.getInt(10);
+                String numeros = result.getString(9);
+                String boite = result.getString(10);
                 String codepostal = result.getString(11);
                 String pays = result.getString(12);
                 String telephone = result.getString(13);
@@ -319,8 +319,8 @@ public class ContactDAOImpl implements ContactDAO {
             statement.setDate(5, Date.valueOf(contact.getDate_de_Naissance()));
             statement.setString(6, contact.getNationalite());
             statement.setString(7, contact.getAdresse());
-            statement.setInt(8, contact.getNumero());
-            statement.setInt(9,contact.getBoite());
+            statement.setString(8, contact.getNumero());
+            statement.setString(9,contact.getBoite());
             statement.setString(10, contact.getCodepostal());
             statement.setString(11, contact.getPays());
             statement.setString(12, contact.getTel());

@@ -15,8 +15,8 @@ public class Contact {
     private LocalDate date_de_Naissance;
     private String nationalite;
     private String adresse;
-    private int numero;
-    private int boite;
+    private String numero;
+    private String boite;
     private String codepostal;
     private String pays;
     private String tel;
@@ -28,7 +28,7 @@ public class Contact {
     ContactDAO dao = new ContactDAOImpl();
 
     // Constructeurs des objets contacts
-    public Contact(String id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, int numero, int boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
+    public Contact(String id, String nom, String prenom, String nickname, String date_de_Naissance,  String nationalite, String adresse, String numero, String boite, String codepostal, String pays, String tel, String smartphone, String email, String remarque) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -105,19 +105,19 @@ public class Contact {
         this.adresse = adresse;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
-    public int getBoite() {
+    public String getBoite() {
         return boite;
     }
 
-    public void setBoite(int boite) {
+    public void setBoite(String boite) {
         this.boite = boite;
     }
 
